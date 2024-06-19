@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- BMI = 體重/身高的平方 -->
+    <!-- 取到小數點第二位 -->
+    <script>
+      /*
+      let width = 100;
+      let tall = 1.65;
+      let BMI = width / (tall * tall);
+      BMI = Number(BMI.toFixed(2));
+      console.log(`My BMI:${BMI}`);
+
+      //檢查BMI範圍
+      if (BMI < 18.5) {
+        console.log("體重過輕");
+      }
+      if (BMI >= 18.5 && BMI < 24) {
+        console.log("體重適中");
+      }
+      if (BMI >= 24) {
+        console.log("去減肥啊死胖子");
+      }
+        */
+      let weight = 200;
+      let height = 1.65;
+      let BMI = (weight / (height * height)).toFixed(2);
+      BMI = Number(BMI);
+      console.log(BMI);
+
+      // 檢查BMI範圍
+      if (BMI < 18.5) {
+        console.log("體重過輕");
+      } else if (BMI < 24) {
+        console.log("體重適中");
+      } else if (BMI < 27) {
+        console.log("該注意瞜胖胖");
+      } else if (BMI < 30) {
+        console.log("該減肥摟小胖子");
+      } else if (BMI < 35) {
+        console.log("馬的死胖子");
+      } else {
+        console.log("你跌倒會引發地震嗎？");
+      }
+    </script>
+  </body>
+</html>
