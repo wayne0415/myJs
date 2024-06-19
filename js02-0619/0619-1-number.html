@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>js second class</p>
+    <button onclick="alert('hi');">打招呼</button>
+    <script>
+      //宣告變數
+      //var 變數名稱;
+      //var=>允許同一個變數重複宣告=>不嚴謹
+      //let=>不允許同一個變數重複宣告=>嚴謹
+      //const=>一旦建立不能更改=>常數
+
+      let price;
+      price = 123;
+      let qty = 5;
+      qty = 10;
+
+      console.log("price " + price + " 元");
+      console.log("小計 " + price * qty + " 元");
+
+      console.log(`price ${price} 元`);
+      console.log(`qty ${qty * price} 元`);
+    </script>
+  </body>
+</html>
