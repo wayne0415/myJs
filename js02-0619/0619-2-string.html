@@ -10,8 +10,22 @@
     <script>
       let strName = "Wayne";
       console.log(`台北金城武: ${strName}`);
-      let age = 24;
-      console.log(`台北金城武: ${age} 歲`);
+      let age = "3";
+      //Number()只是暫時轉換成數值，運算完會變回原本的資料型態
+      console.log(`台北金城武: ${Number(age) + 87} 歲`);
+      console.log(typeof age);
+      //真正要字串轉數值，必須要重新指派轉換結果給原來的變數
+      age = Number(age);
+      console.log(typeof age);
+
+      let pi = 3.14;
+      let r = 6;
+      let area = pi * r * r;
+      console.log(area);
+      console.log(parseInt(area)); //parseInt() 無條件取整數
+
+      console.log(area.toFixed(2)); //取小數點第2位，回傳資料型態為字串
+      console.log(Number(area.toFixed(2)) + 2); //因為前面是字串型態，為了要運算所以使用Number()轉換
     </script>
   </body>
 </html>
