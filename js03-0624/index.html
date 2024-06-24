@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 檢查四季
+            let a = 0;
+            if (a === 1) {
+                console.log("spring");
+            } else if (a === 2) {
+                console.log("summer");
+            } else if (a === 3) {
+                console.log("autumn");
+            } else if (a === 4) {
+                console.log("winter");
+            } else {
+                console.log("season number error(1-4)");
+            }
+
+            // 檢查四季
+            // break可以使用的範圍：1.switch 2.迴圈內
+            // switch大多是判斷變數或運算式的結果
+            let b = 3;
+            switch (b) {
+                case 1:
+                    console.log("spring");
+                    break;
+                case 2:
+                    console.log("summer");
+                    break;
+                case 3:
+                    console.log("autumn");
+                    break;
+                case 4:
+                    console.log("winter");
+                    break;
+                default:
+                    //以上結果都不是
+                    console.log("season number error(1-4)");
+            }
+        </script>
+    </body>
+</html>
