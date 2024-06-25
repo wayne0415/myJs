@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 血型判斷(大小寫不同)
+            // A => A型
+            // a => A型
+
+            // if-else-if
+            // switch
+            let blood;
+            blood = prompt("請輸入血型A,AB,B,O: ");
+            // blood = blood.toUpperCase();
+
+            if (blood == null) {
+                document.write("你按了取消。");
+            } else {
+                blood = blood.trim().toUpperCase();
+                if (blood == "") {
+                    document.write("不能空白");
+                } else if (blood == "A") {
+                    document.write("A型");
+                } else if (blood == "B") {
+                    document.write("B型");
+                } else if (blood == "AB") {
+                    document.write("AB型");
+                } else if (blood == "O") {
+                    document.write("O型");
+                } else {
+                    document.write("輸入錯誤");
+                }
+            }
+
+            //換行
+            document.write("<br />");
+
+            //switch
+            let blood2 = prompt("請輸入血型:=>switch ");
+
+            if (blood2 == null) {
+                document.write("你按了取消。");
+            } else {
+                switch (blood2.trim().toUpperCase()) {
+                    case "":
+                        document.write("不能空白");
+                        break;
+                    case "A":
+                        document.write("A型");
+                        break;
+                    case "B":
+                        document.write("B型");
+                        break;
+                    case "AB":
+                        document.write("AB型");
+                        break;
+                    case "O":
+                        document.write("O型");
+                        break;
+                    default:
+                        document.write("輸入錯誤");
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>
