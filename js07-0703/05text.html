@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let count = 0; // 第N次
+            let pass = 0; // 及格人數
+            let fail = 0; // 不及格人數
+            let totalScore = 0; // 總分
+            let averageScore = 0; // 總平均
+
+            while (true) {
+                let input = prompt("請輸入分數 (輸入 -1 結束):");
+                if (input === "-1" || input == null) {
+                    break;
+                }
+
+                let score = Number(input);
+                if (isNaN(score)) {
+                    alert("非數值，請重新輸入");
+                    continue;
+                }
+
+                if (score < 0 || score > 100) {
+                    alert("分數必須在0到100之間");
+                    continue;
+                }
+
+                if (score >= 60) {
+                    pass++;
+                } else {
+                    fail++;
+                }
+
+                totalScore += score;
+                count++;
+                console.log(`第${count}次分數: ${score}`);
+            }
+
+            if (count > 0) {
+                // 避免除以零的錯誤
+                averageScore = totalScore / count;
+                averageScore = averageScore.toFixed(2);
+            }
+
+            console.log("-------------------------");
+            console.log(`及格人數: ${pass}人`);
+            console.log(`不及格人數: ${fail}人`);
+            console.log(`總分: ${totalScore}分`);
+            console.log(`總平均: ${averageScore}分`);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 猜數字：直到猜對才結束
+            // ex:
+            // 用亂數產生一個值：60
+            // 輸入資訊顯示console.log()
+            // 第1次：50 => 太小了（提示：50-100）
+            // 第2次：90 => 太大了（提示：50-90）
+            // 第3次：80 => 太大了（提示：50-80）
+            // 第4次：55 => 太小了（提示：55-80）
+            // 第5次：60 => 猜對了
+
+            // console.log(Math.floor(Math.random()*100)); // 回傳 0 ~ 99
+            // console.log(Math.floor(Math.random()*100)+1); // 回傳 1 ~ 100
+            // 產生亂數給變數bingoNum
+
+            // console.log(bingoNum);
+
+            let bingoNum = Math.floor(Math.random() * 100) + 1; // bingoNum = 1 ~ 100 之間的隨機整數
+            let input = 0;
+            let count = 0; // 猜了幾次
+            let max = 100; // 最大範圍
+            let min = 1; // 最小範圍
+
+            while (true) {
+                input = prompt("請輸入1~100範圍內的(整數): "); // 將使用者輸入的數字以字串的型態存入到input中，因為不知道要猜多少次，所以這個東西可能會重複好多次，所以要放在迴圈裡面重複執行
+                if (input == null) {
+                    break;
+                }
+                input = Number(input.trim()); // input被轉成數字並且去掉左右的空白了
+                // 接下來要來判斷數字有沒有在1~100裡面
+                if (input < 1 || input > 100) {
+                    alert("輸入範圍不能超1~100!");
+                    continue;
+                }
+                // 如果（input不是數字）這個邏輯成立的話，跳出提醒字樣並且重新迴圈
+                if (isNaN(input)) {
+                    alert("非數值，請重新輸入");
+                    continue;
+                }
+                // 要判斷數字是不是整數，不能是小數
+                if (input % 1 != 0) {
+                    alert("只能輸入整數!");
+                    continue;
+                }
+                count++;
+                if (input != bingoNum) {
+                    if (input > bingoNum) {
+                        max = input;
+
+                        console.log(`第${count}次: ${input} => 太大了(提示${min}~${input})`);
+                    } else {
+                        min = input;
+                        console.log(`第${count}次: ${input}=> 太小了(提示${input}~${max})`);
+                    }
+                    continue;
+                } else {
+                    console.log(`第${count}次: ${input} =>猜對了${bingoNum}`);
+                    break;
+                }
+            }
+        </script>
+    </body>
+</html>
