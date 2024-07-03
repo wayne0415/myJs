@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 1-100中5的倍數
+            // 使用continue(忽略下方程式執行)
+            // continue之後的程式碼都不執行
+            // 直接回到迴圈起始位置
+
+            // 1-100中5的倍數合
+            // for
+            let tot = 0;
+            let i = 0;
+            for (i = 1; i <= 100; i++) {
+                if (i % 5 != 0) {
+                    continue;
+                }
+                tot = tot + i;
+            }
+            console.log(`--for--`);
+            console.log(`1-100中5的倍數合=${tot}`);
+
+            // while
+            console.log("-----------------------");
+            tot = 0;
+            i = 0;
+            while (i <= 100) {
+                i++;
+                if (i % 5 != 0) {
+                    continue;
+                }
+                tot = tot + i;
+            }
+            console.log(`--while--`);
+            console.log(`1-100中5的倍數合=${tot}`);
+
+            console.log("-----------------------");
+
+            // 結論
+            // break    => 狠狠地結束迴圈
+            // continue => 快樂的回到迴圈開始的位置
+
+            // do while
+        </script>
+    </body>
+</html>

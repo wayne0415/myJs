@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 有參數，有傳回值
+            function chk_score(int_score) {
+                if (int_score >= 60) {
+                    // document.write("及格");
+                    return "及格"; /* 結束函式，並且把結果傳出去 */
+                } else {
+                    // document.write("不及格");
+                    return "不及格";
+                }
+            }
+            let score = Number(prompt("請輸入分數"));
+            let result = chk_score(score);
+            console.log(result);
+
+            score = Number(prompt("請輸入分數"));
+            result = chk_score(score);
+            console.log(result);
+
+            score = Number(prompt("請輸入分數"));
+            result = chk_score(score);
+            console.log(result);
+        </script>
+    </body>
+</html>

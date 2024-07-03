@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 請設計一個函數，能夠四則運算
+            function calc(a, b, c) {
+                // 處理四則運算的結果
+                if (c == "+") {
+                    document.write(`${a}+${b}=${a + b}`);
+                } else if (c == "-") {
+                    document.write(`${a}-${b}=${a - b}`);
+                } else if (c == "*") {
+                    document.write(`${a}x${b}=${a * b}`);
+                } else if (c == "/") {
+                    document.write(`${a}/${b}=${(a / b).toFixed(2)}`);
+                } else {
+                    document.write("運算符號不存在");
+                }
+            }
+            // 使用輸入視窗產生任意二數與運算式符號
+
+            // 最後再呼叫函式
+            // 處理排除非數字或取消狀況
+            let input_a = prompt("數字");
+            let input_c = prompt("加減乘除");
+            let input_b = prompt("數字");
+            if (input_a == null || input_c == null || input_b == null) {
+                document.write("不能按取消");
+            } else {
+                input_a = input_a.trim();
+                input_b = input_b.trim();
+                input_c = input_c.trim();
+                if (isNaN(input_a) || isNaN(input_b)) {
+                } else {
+                    input_a = Number(input_a);
+                    input_b = Number(input_b);
+                    calc(input_a, input_b, input_c);
+                }
+            }
+        </script>
+    </body>
+</html>

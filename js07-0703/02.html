@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 函式宣告狀況一: 無參數，無傳回值
+            //建立一個打招呼的函式
+            function say_hi() {
+                console.log("Hello");
+                document.write("Hello");
+            }
+            // 呼叫函示=> 函式名稱()
+            say_hi();
+
+            // 函式宣告狀況二: 有參數，無傳回值
+            let str_name = "abc";
+            function say_hi2(str_name) {
+                document.write("Hello<br/>");
+            }
+            console.log(str_name);
+        </script>
+    </body>
+</html>
