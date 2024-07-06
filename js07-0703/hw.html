@@ -36,15 +36,16 @@
                 }
                 input = Number(input.trim()); // input被轉成數字並且去掉左右的空白了
                 // 接下來要來判斷數字有沒有在1~100裡面
-                if (input < 1 || input > 100) {
-                    alert("輸入範圍不能超1~100!");
-                    continue;
-                }
                 // 如果（input不是數字）這個邏輯成立的話，跳出提醒字樣並且重新迴圈
                 if (isNaN(input)) {
                     alert("非數值，請重新輸入");
                     continue;
                 }
+                if (input < 1 || input > 100) {
+                    alert("輸入範圍不能超1~100!");
+                    continue;
+                }
+
                 // 要判斷數字是不是整數，不能是小數
                 if (input % 1 != 0) {
                     alert("只能輸入整數!");
@@ -60,7 +61,6 @@
                         min = input;
                         console.log(`第${count}次: ${input}=> 太小了(提示${input}~${max})`);
                     }
-                    continue;
                 } else {
                     console.log(`第${count}次: ${input} =>猜對了${bingoNum}`);
                     break;
