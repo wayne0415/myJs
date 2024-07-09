@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <button onclick="tot3(12,34);">兩數相加tot3</button>
+        <button onclick="alert(tot2(12,34));">兩數相加tot2</button>
+        <script>
+            // 二數相加
+            function tot1(x, y) {
+                return x + y;
+            }
+            console.log(tot1(45, 35));
+            // 匿名函式
+            let tot2 = function (x, y) {
+                return x + y;
+            };
+            console.log("tot2 " + tot2(234, 6));
+
+            let tot3 = function (x, y) {
+                console.log(x + y);
+            };
+            // 箭頭函式(參數寫在等號與箭頭之間)
+            let tot4 = (x, y) => {
+                return x + y;
+            };
+            console.log("tot4=> " + tot4(5, 3));
+
+            // 只要是funtion，無論是否有參數，小括號()都不能省略
+            let sayhi = () => {
+                document.write("fuck you");
+            };
+            sayhi();
+        </script>
+    </body>
+</html>

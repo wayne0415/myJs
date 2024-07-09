@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function tot1(x = 0, y = 0) {
+                console.log(x + y);
+            }
+            tot1();
+            tot1(5);
+            tot1(5, 4);
+
+            // 具名參數(不按照參數的順序給值)
+            // 使用物件型別(傳送資料給指定的參數)
+            // 所以接收資料的函式參數，也要使用物件型別{}接收
+            function tot2({ x = 0, y = 0 }) {
+                console.log(x + y);
+            }
+            tot2({ x: 5, y: 3 });
+        </script>
+    </body>
+</html>
