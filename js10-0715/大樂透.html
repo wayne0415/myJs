@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 空陣列
+            let arr1 = [];
+            // 亂數1-49
+            let r1 = 0;
+            let r2 = Math.floor(Math.random() * 49) + 1;
+            while (true) {
+                r1 = Math.floor(Math.random() * 49) + 1;
+                if (arr1.length == 6) {
+                    break;
+                }
+                if (arr1.indexOf(r1) == -1) {
+                    arr1.push(r1);
+                }
+            }
+            console.log(arr1);
+            arr1.sort((a, b) => {
+                return a - b;
+            });
+            arr1.push(r2);
+            console.log(arr1);
+        </script>
+    </body>
+</html>
