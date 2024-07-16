@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // 建立函數
+            function getRandNum(a) {
+                if (a == "1") {
+                    return Math.floor(Math.random() * 49) + 1;
+                } else if (a == "2") {
+                    return Math.floor(Math.random() * 37) + 1;
+                } else if (a == "3") {
+                    return Math.floor(Math.random() * 38) + 1;
+                }
+            }
+
+            function getLotNum(a) {
+                let arrNum = [];
+                // 方法一 => for
+                for (let i = 0; i < 6; i++) {
+                    // 取亂數
+                    let lotNum = getRandNum(a);
+                    // 檢查陣列是否存在此號碼
+                    if (arrNum.indexOf(lotNum) == -1) {
+                        // 沒有重複，則加入陣列
+                        arrNum.push(lotNum);
+                    } else {
+                        // 有重複
+                        // console.log(`在編號${i}位置， ${lotNum}重複了`);
+                        i--; /* 因為重複，所以編號位置要-1 */
+                    }
+                }
+                // console.log("排序前: " + arrNum);
+                arrNum.sort((a, b) => {
+                    return a - b;
+                });
+                // console.log("排序後: " + arrNum);
+                let r2 = 0;
+                r2 = getRandNum(a);
+                arrNum.push(r2);
+                if (a == "1") {
+                    console.log("排序後再加入特別數的威力彩: " + arrNum);
+                } else if (a == "2") {
+                    console.log("排序後再加入特別數的威力彩: " + arrNum);
+                } else {
+                    arrNum.splice(5, 6);
+                    console.log("排序後539: " + arrNum);
+                }
+            }
+            let a = prompt("請輸入樂透號碼代號 =>\n1.大樂透 2.威力彩 3.今彩539");
+
+            getLotNum(a);
+            // let arrNum = [];
+            // // 方法一 => for
+            // for (let i = 0; i < 6; i++) {
+            //     // 取亂數
+            //     let lotNum = Math.floor(Math.random() * 49) + 1;
+            //     // 檢查陣列是否存在此號碼
+            //     if (arrNum.indexOf(lotNum) == -1) {
+            //         // 沒有重複，則加入陣列
+            //         arrNum.push(lotNum);
+            //     } else {
+            //         // 有重複
+            //         console.log(`在編號${i}位置， ${lotNum}重複了`);
+            //         i--; /* 因為重複，所以編號位置要-1 */
+            //     }
+            // }
+            // console.log("排序前: " + arrNum);
+            // arrNum.sort((a, b) => {
+            //     return a - b;
+            // });
+            // console.log("排序後: " + arrNum);
+        </script>
+    </body>
+</html>
