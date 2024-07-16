@@ -36,6 +36,13 @@
 
             // 使用中括號，取得物件屬性
             console.log(user["name"]);
+            // 修改物件中的年齡屬性
+            user.age = 10;
+            console.log(user.age);
+
+            // 刪除物件中的年齡屬性
+            delete user.age;
+            console.log(user.age);
 
             // 筆電物件
             let notebook = {
@@ -44,7 +51,25 @@
                 // 規格
                 // 價格
             };
-            // 方法二：建構子
+            // 方法二：建構子(new)
+            // 1. 使用new建立一個空物件object
+            let mobile = new Object();
+            // 再建立屬性或方法
+            // 建立品牌屬性
+            mobile.brand = "iPhone";
+            // 建立顏色屬性
+            mobile.color = "block";
+            // 建立尺寸屬性
+            mobile.size = "14";
+            // 建立方法
+            mobile.showMsg = function () {
+                return `品牌: ${this.brand}, 色彩: ${this.color}, 尺寸: ${this.size}`;
+            };
+
+            // 呼叫物件屬性
+            console.log(mobile.brand);
+            // 呼叫物件方法
+            console.log(mobile.showMsg());
         </script>
     </body>
 </html>
