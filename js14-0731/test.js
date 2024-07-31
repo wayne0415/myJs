@@ -32,26 +32,22 @@ myBtn.addEventListener("click", () => {
     // 被勾選
     let str1 = "";
     if (result.length > 0) {
-        str1 = "<ul>被勾選的項目";
+        str1 = "<ul id='sel'>被勾選的項目";
         // 被選取的li
-
         for (let i = 0; i < result.length; i++) {
             str1 = str1 + `<li>${result[i]}</li>`;
         }
-
         str1 = str1 + "</ul>";
     }
 
     // 沒被勾選
     let str2 = "";
     if (resultNot.length > 0) {
-        str2 = "<ul>沒被勾選的項目";
+        str2 = "<ul id='noSel'>沒被勾選的項目";
         // 被選取的li
-
         for (let i = 0; i < resultNot.length; i++) {
             str2 = str2 + `<li>${resultNot[i]}</li>`;
         }
-
         str2 = str2 + "</ul>";
     }
 
