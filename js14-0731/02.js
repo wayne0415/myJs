@@ -4,7 +4,7 @@ let result = "";
 let myBtn = document.querySelector("#btn");
 // 監聽按鈕是否左鍵一下
 //
-myBtn.addEventListener("click", function () {
+myBtn.addEventListener("click", () => {
     // 取得下拉式方塊
     let myCity = document.querySelector("#city");
     // 使用迴圈，逐一檢查是否被選取 => selected
