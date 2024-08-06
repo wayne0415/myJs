@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .item span {
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <span onclick="changeToAbout();">關於我</span>
+            <span onclick="changeToExps();">學經歷</span>
+            <span onclick="changeToContact();">聯絡我們</span>
+            <span onclick="changeToNews();">最新活動</span>
+        </div>
+        <hr />
+        <div class="item">
+            <span onclick="changeToAbout();">關於我</span>
+            <span onclick="changeToExps();">學經歷</span>
+            <span onclick="changeToContact();">聯絡我們</span>
+            <span onclick="changeToNews();">最新活動</span>
+        </div>
+        <hr />
+        <div id="about">大家好，我是金城武</div>
+        <div id="exps" style="display: none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fuga molestiae rem officia iusto atque natus minus, quod a veniam magnam deleniti, eaque fugiat earum alias accusantium debitis enim! Incidunt!</div>
+        <div id="contact" style="display: none">太陽系火星帝國</div>
+        <div id="news" style="display: none">金城武被帥死啦!!!!</div>
+        <script>
+            let aboutDiv = "";
+            let expsDiv = "";
+            let contactDiv = "";
+            let newsDiv = "";
+
+            function getDiv() {
+                // 1. 先取得操作的標籤div
+                aboutDiv = document.querySelector("#about");
+                expsDiv = document.querySelector("#exps");
+                contactDiv = document.querySelector("#contact");
+                newsDiv = document.querySelector("#news");
+                // 2. 再對標籤div操作
+                aboutDiv.style.display = "none";
+                expsDiv.style.display = "none";
+                contactDiv.style.display = "none";
+                newsDiv.style.display = "none";
+            }
+
+            // 關於我
+            function changeToAbout() {
+                getDiv();
+                aboutDiv.style.display = "block";
+            }
+
+            // 學經歷
+            function changeToExps() {
+                getDiv();
+                expsDiv.style.display = "block";
+            }
+            // 聯絡我們
+            function changeToContact() {
+                getDiv();
+                contactDiv.style.display = "block";
+            }
+            function changeToNews() {
+                getDiv();
+                newsDiv.style.display = "block";
+            }
+        </script>
+    </body>
+</html>
