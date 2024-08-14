@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>頁面捲動</title>
+    </head>
+    <body>
+        <form action="" id="myForm">
+            <label for="userName">姓名</label>
+            <input type="text" id="userName" />
+            <input type="submit" />
+        </form>
+
+        <br />
+        <button id="delBtn">刪除姓名</button>
+        <script>
+            // 刪除姓名(localstorage中的username)
+            let delBtn = document.getElementById("delBtn");
+            delBtn.addEventListener("click", function () {
+                if (window.confirm("確定要刪除姓名嗎?")) {
+                    window.localStorage.removeItem("userName");
+                    alert("姓名已刪除");
+                } else {
+                    alert("刪除取消");
+                }
+            });
+
+            // 取得表單
+            let myForm = document.getElementById("myForm");
+            myForm.addEventListener("submit", function () {
+                // 使用確認對話方塊
+                if (window.confirm("確定要送出表單資料嗎?")) {
+                    // 取得姓名文字方塊
+                    let userName = document.getElementById("userName");
+                    // 寫入時機: 跨頁使用時再寫
+                    // 寫入姓名資料到localstorage(跨頁使用時再寫)
+                    window.localStorage.setItem("userName", userName.value);
+                    alert(userName.value + "成功送出");
+                } else {
+                    alert("取消送出");
+                }
+            });
+            // 取得submit
+
+            // 使用確認對話方塊
+        </script>
+    </body>
+</html>
