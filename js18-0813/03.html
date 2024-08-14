@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .wrap {
+                margin: 100px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 換圖輪播 -->
+        <div class="wrap">
+            <div>
+                <img onmousemove="changePic();" onmouseout="restorePic()" id="pic" src="../img/freddy-irra-tXqeQn-xqSk-unsplash.jpg" alt="圖片啦幹!!!!!" />
+            </div>
+        </div>
+        <script>
+            function changePic() {
+                // 取得換圖目標
+                let pic = document.getElementById("pic");
+                // 換圖
+                pic.src = "../img/raymond-petrik-zimD1uT_XB0-unsplash.jpg";
+            }
+
+            // 還原
+            function restorePic() {
+                // 取得換圖目標
+                let pic = document.getElementById("pic");
+                pic.src = "../img/freddy-irra-tXqeQn-xqSk-unsplash.jpg";
+                // pic.src = '';
+            }
+        </script>
+    </body>
+</html>

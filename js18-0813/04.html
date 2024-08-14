@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            img {
+                font-size: 0;
+                width: 100%;
+            }
+            .wrap {
+                width: 60%;
+                margin: 10px auto;
+            }
+
+            ul {
+                margin: 10px auto;
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <figure>
+                <img id="pic" src="../img/freddy-irra-tXqeQn-xqSk-unsplash.jpg" alt="" />
+            </figure>
+            <ul>
+                <li><img onclick="changePicture('left');" src="../img/pawel-czerwinski-dsoWEYWtYYM-unsplash.jpg" alt="" /></li>
+                <li><img onclick="changePicture('mid');" src="../img/pawel-czerwinski-LerLJZdUjr0-unsplash.jpg" alt="" /></li>
+                <li><img onclick="changePicture('right');" src="../img/raymond-petrik-zimD1uT_XB0-unsplash.jpg" alt="" /></li>
+            </ul>
+        </div>
+        <script>
+            function changePicture(position) {
+                let pic = document.getElementById("pic");
+                // switch (position) {
+                //     case "left":
+                //         pic.src = "../img/pawel-czerwinski-dsoWEYWtYYM-unsplash.jpg";
+                //         break;
+                //     case "mid":
+                //         pic.src = "../img/pawel-czerwinski-LerLJZdUjr0-unsplash.jpg";
+                //         break;
+                //     case "right":
+                //         pic.src = "../img/raymond-petrik-zimD1uT_XB0-unsplash.jpg";
+                //         break;
+                // }
+
+                if (position == "left") {
+                    pic.src = "../img/pawel-czerwinski-dsoWEYWtYYM-unsplash.jpg";
+                } else if (position == "mid") {
+                    pic.src = "../img/pawel-czerwinski-LerLJZdUjr0-unsplash.jpg";
+                } else if (position == "right") {
+                    pic.src = "../img/raymond-petrik-zimD1uT_XB0-unsplash.jpg";
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #myDiv {
+                width: 100px;
+                height: 100px;
+                border: 1px solid #000;
+                margin: 0 0 20px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div id="myDiv"></div>
+            <button onclick="turnRed();">紅</button>
+            <button onclick="turnGreen();">綠</button>
+            <button onclick="turnBlue();">藍</button>
+            <hr />
+            <button onclick="turnColor('r');">紅</button>
+            <button onclick="turnColor('g');">綠</button>
+            <button onclick="turnColor('b');">藍</button>
+        </div>
+        <script>
+            function turnRed() {
+                // 取得變色的目標
+                let myDiv = document.getElementById("myDiv");
+
+                // 背景色
+                myDiv.style.backgroundColor = "red";
+            }
+            function turnGreen() {
+                // 取得變色的目標
+                let myDiv = document.getElementById("myDiv");
+
+                // 背景色
+                myDiv.style.backgroundColor = "green";
+            }
+            function turnBlue() {
+                // 取得變色的目標
+                let myDiv = document.getElementById("myDiv");
+
+                // 背景色
+                myDiv.style.backgroundColor = "blue";
+            }
+
+            // 整合上方函式為一個函式，傳參數
+
+            function turnColor(myColor) {
+                // 取得變色的目標
+                let myDiv = document.getElementById("myDiv");
+                switch (myColor) {
+                    case "r":
+                        myDiv.style.backgroundColor = "red";
+                        break;
+                    case "g":
+                        myDiv.style.backgroundColor = "green";
+                        break;
+                    case "b":
+                        myDiv.style.backgroundColor = "blue";
+                        break;
+                }
+            }
+        </script>
+    </body>
+</html>
