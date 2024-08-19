@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="../javascripts/vendor.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js" integrity="sha512-1/8Tj23BRrWnKZXeBruk6wTnsMJbi/lJsk9bsRgVwb6j5q39n0A00gFjbCTaDo5l5XrPVv4DZXftrJExhRF/Ug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body {
+                background-color: #c5c5c5;
+            }
+            .container {
+                max-width: 786px;
+                margin: 0 auto;
+                padding: 1.5rem 1.5rem;
+                background-color: whitesmoke;
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 2rem;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .actor {
+                font-size: 18px;
+            }
+            figure {
+                width: 100%;
+                /* object-fit: cover; */
+                /* object-fit: 不能寫在img的父層歐 */
+                font-size: 0;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            a {
+                text-decoration: none;
+                color: blue;
+            }
+            p {
+                width: 100%;
+                font-size: 1.25rem;
+            }
+            .titleContent {
+                width: auto;
+                font-weight: bold;
+                padding-bottom: 2px;
+                border-bottom: 1px solid black;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- https://today.line.me/tw/v2/article/9mPneZR -->
+        <div id="root"></div>
+        <script type="text/babel">
+            function App() {
+                const data = {
+                    imgSRC: "https://today-obs.line-scdn.net/0hLQFlEZQHE357FQPbt1hsKUNDHw9Icwl3WXFcGwxGSU0COVAoQXtAHV8QRVJeIlEtW3ZUHlYcTksGJFcpRw/w1200",
+                    aHref: "https://www.moneydj.com/kmdj/news/newsviewer.aspx?a=f14365cf-02dd-4079-985c-16c18aa6f906&_trms=c2581d9d4b2d57d1.1724054369357",
+                    aTarget: "blank",
+                };
+                return (
+                    <div className="container">
+                        <h1>黃金在外流通庫存快被央行買光？西方也加入搶金</h1>
+                        <p className="actor">MoneyDJ新聞 2024-08-19 10:43:16 記者 郭妍希 報導</p>
+                        <figure>
+                            <img src={data.imgSRC} />
+                        </figure>
+                        <p>金價在各國央行大買、市場期待聯準會(Fed)降息的激勵下，今(2024)年來已28度刷新歷史收盤高。</p>
+                        <p>MarketWatch 16日報導，BullionVault研究部主管Adrian Ash表示，過去五年來，央行對黃金的需求大增，礦商幾乎每挖出10盎司黃金，就有1盎司被央行買走。各國央行似乎永不停歇的黃金採購潮，對黃金多頭的基本面和市場氛圍至關重要。</p>
+                        <p>Ash指出，2004年夏季迄今，全球央行的黃金儲備總重已增加近19%，以美元估算的價值則暴增七倍至2.4兆美元，俄羅斯、中國、印度與土耳其是主要購買黃金的國家。</p>
+                        <p>Sprott Asset Management市場策略師Paul Wong表示，央行持續買金，已快要將所有可交易黃金的「自由流通庫存」消耗殆盡。世界黃金協會(World Gold Council, WGC)引述國際貨幣基金組織(IMF)統計指出，截至2024年5月，全球官方黃金儲備總計有36,089公噸。這是相當大的數量，因為有史以來，全世界掘出的黃金只有212,582公噸。</p>
+                        <p>《Gold Newsletter》主編Brien Lundin直指，西方買家之前雖缺席，但隨著Fed著手為降息做準備，他們最近也加入買金行列，進而推升金價。他說，隨著西方買家進場撐住金價，沒理由認為各國央行或中國投資者現在會放棄買金計畫。</p>
+                        <p>Lundin相信，這可能會是1971年黃金成為可投資資產以來，首次出現東西方買家都在搶購黃金的盛況。美國前總統尼克森(Richard Nixon)是在1971年宣布結束金本位制。</p>
+                        <p>紐約商品期貨交易所（COMEX）12月黃金期貨8月16日收盤上漲45.4美元或1.8%至每盎司2,537.8美元，創下歷史新高。</p>
+                        <p className="titleContent">《大賣空》三主角看好黃金</p>
+                        <p>2008年在美國次貸危機爆發前放空房市、從中大賺一筆的電影《大賣空》三名角色原型Danny Moses、Porter Collins及Vincent Daniel相信，美元貶值速度過快，黃金依舊是長期最看好的標的之一。</p>
+                        <p>
+                            Business Insider報導，Collins 7月29日接受CNBC訪問時
+                            <a target={data.aTarget} href={data.aHref}>
+                                表示
+                            </a>
+                            ，美國債務節節攀高，是他看好黃金的主因。Daniel也認為，接下來幾年美元恐「嚴重貶值」(huge debasement)。
+                        </p>
+                        <p>Collins相信，任何時候黃金的表現都優於美國公債，預測「未來1、2、3、5、10年內，持有黃金的報酬將遠高於美國公債。」</p>
+                        <p>身為Moses Ventures創辦人的Moses則透過電子郵件表示，他持有Sprott實體黃金信託ETF (Sprott Physical Gold Trust，代號為PHYS)的大批做多部位。</p>
+                        <p>(圖片來源：shutterstock)</p>
+                        <p>＊編者按：本文僅供參考之用，並不構成要約、招攬或邀請、誘使、任何不論種類或形式之申述或訂立任何建議及推薦，讀者務請運用個人獨立思考能力，自行作出投資決定，如因相關建議招致損失，概與《精實財經媒體》、編者及作者無涉。</p>
+                    </div>
+                );
+            }
+            ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+        </script>
+    </body>
+</html>
