@@ -19,11 +19,12 @@
                 // 元件結束後必須要有回傳值
                 return (
                     <img
-                        src={props.imgUrl}
                         title={props.title}
+                        src={props.imgUrl}
                         style={{
-                            width: "300px",
-                            border: "5px solid red",
+                            width: props.width,
+                            marginBottom: "20px",
+                            border: props.border,
                         }}
                     />
                 );
@@ -39,8 +40,8 @@
                         {/* <GetImg></GetImg> */}
                         {/* 使用自訂屬性名稱，傳值給元件 */}
                         {/*  元件使用props接收 */}
-                        <GetImg imgUrl="../img/freddy-irra-tXqeQn-xqSk-unsplash.jpg" title="圖1" />
-                        <GetImg imgUrl="../img/freddy-irra-tXqeQn-xqSk-unsplash.jpg" title="圖2" />
+                        <GetImg imgUrl="../img/01.jpg" title="圖1" width="300px" border="5px solid black" />
+                        <GetImg imgUrl="../img/02.jpg" title="圖2" width="150px" border="10px dashed red" />
                     </div>
                 );
             }
