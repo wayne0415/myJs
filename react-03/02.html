@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="./javascripts/vendor.js"></script>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js" integrity="sha512-1/8Tj23BRrWnKZXeBruk6wTnsMJbi/lJsk9bsRgVwb6j5q39n0A00gFjbCTaDo5l5XrPVv4DZXftrJExhRF/Ug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="./stylesheets/all.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+
+        <script type="text/babel">
+            // 建立卡片元件
+            // 元件名稱字首大寫
+            function GetCard(props) {
+                let msgAge = "";
+                if (props.age == "") {
+                    msgAge = "沒有你的年齡";
+                } else {
+                    msgAge = props.age;
+                }
+                let msgBtn = "";
+                if (props.btnname == "") {
+                    msgBtn = "顯示錯誤";
+                } else {
+                    msgBtn = props.btnname;
+                }
+
+                // 元件結束後必須要有回傳值
+                return (
+                    <div className="card" style={{ width: "18rem" }}>
+                        <img src={props.imgURL} className="card-img-top" />
+                        <div className="card-body">
+                            <h5 className="card-title">{props.name}</h5>
+                            <p className="card-text">年齡: {msgAge}</p>
+                            <a href="#" className="btn btn-primary">
+                                {msgBtn}
+                            </a>
+                        </div>
+                    </div>
+                );
+            }
+
+            // 步驟3: 建立React元件
+            function App() {
+                // JSX寫法
+                return (
+                    <>
+                        <GetCard imgURL="../img/01.jpg" name="卡片1" age="20歲" btnname="用力" />;
+                        <GetCard imgURL="../img/02.jpg" name="卡片2" age="22歲" btnname="用力" />;
+                        <GetCard imgURL="../img/03.jpg" name="卡片3" age="90歲" btnname="用力" />;
+                    </>
+                );
+            }
+            // 步驟4: 渲染(顯示)App元件到根元件(root)上
+            ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+        </script>
+    </body>
+</html>
