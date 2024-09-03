@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>自動輪撥</title>
+
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            h1 {
+                text-align: center;
+            }
+            .box {
+                margin: auto;
+            }
+            img {
+                width: 600px;
+                height: 450px;
+                object-fit: cover;
+            }
+            .imgCycle {
+                border-radius: 2rem;
+            }
+            .box {
+                width: 600px;
+                height: 450px;
+                position: relative;
+            }
+
+            #nav {
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+                z-index: 99;
+            }
+            #nav a {
+                color: white;
+                text-decoration: none;
+                /* font-size: 20px; */
+                margin-bottom: 20px;
+                border: 1px solid white;
+                display: block;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                line-height: 20px;
+                border-radius: 50%;
+            }
+            #nav a.activeSlide {
+                background-color: yellow;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const { useEffect } = React;
+
+            function App() {
+                // 撰寫jQuery
+                // jQuery簡寫
+                useEffect(() => {
+                    $(function () {
+                        $("#imgCycle").after('<div id="nav"></div>').cycle({
+                            fx: "fade",
+                            timeout: 500,
+                            delay: 2000,
+                            pager: "#nav",
+                        });
+                    });
+                }, []);
+                return (
+                    <div>
+                        <h1>自動輪播+輪播鈕</h1>
+                        <div class="box">
+                            <div id="imgCycle">
+                                <img src="./img/01.jpg" alt="" />
+                                <img src="./img/02.jpg" alt="" />
+                                <img src="./img/03.jpg" alt="" />
+                                <img src="./img/04.jpg" alt="" />
+                                <img src="./img/05.jpg" alt="" />
+                            </div>
+                            {/* <nav>輪播導覽列位置</nav> */}
+                        </div>
+                    </div>
+                );
+            }
+            ReactDOM.createRoot(document.querySelector("#root")).render(<App />);
+        </script>
+        <script src="./jQuery/js/jquery-1.11.3.min.js"></script>
+        <script src="./jQuery/js/jquery.cycle.all.js"></script>
+    </body>
+</html>
