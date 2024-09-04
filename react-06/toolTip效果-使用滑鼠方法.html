@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>Document</title>
+        <style>
+            #wrapper {
+                width: 960px;
+                margin: 50px auto;
+            }
+            p {
+                text-align: justify;
+                line-height: 1.5;
+                font-size: 1.3rem;
+            }
+            a {
+                color: red;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: line-through;
+            }
+            .ttpshow {
+                border: 3px solid #ccc;
+                padding: 10px;
+                text-align: left;
+                background-color: #fff;
+                position: absolute;
+                z-index: 99;
+            }
+            .ttppanel {
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const { useEffect } = React;
+
+            function App() {
+                useEffect(() => {
+                    $(function () {
+                        // 滑鼠事件
+                        // 移入 => mouseover()
+                        // 移動 => mousemove()
+                        // 移出 => mouseout()
+                        // 座標X => pageX
+                        // 座標Y => pageY
+                        // 淡入 => fadeIn()
+                        // 淡出 => fadeOut()
+                        // 速度 => 可以使用秒數或者參數(slow, normal, fast)
+                        // 傳回被找到的資訊 => has()
+                        $("a:has(.ttpshow)")
+                            .mouseover(function)(e){
+                                $('body').append('<div id="ttppanel">') + $(this).children('.ttpshow').html()+'</div>');
+                                $('#ttppanel').css({
+                                    top
+                                })
+                            }
+
+
+                            .mousemove(function (e) {
+                                // 滑鼠在超連結移動時
+                                $(".ttppanel")
+                                    .css({
+                                        top: e.pageY + "px",
+                                        left: e.pageX + "px",
+                                    })
+                                    .fadeIn("fast");
+                            })
+                            .mouseout(function () {
+                                // 滑鼠移開超連結時
+                                $(".ttppanel").remove();
+                            });
+                    });
+                }, []);
+                return (
+                    <div id="wrapper">
+                        <h1>toolTip效果-使用滑鼠方法</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur{" "}
+                            <a href="#">
+                                adipisicing<span className="ttpshow">adipisicing內容說明</span>
+                            </a>{" "}
+                            elit Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quam molestiae voluptates dolore. Repellat labore quibusdam enim dolor officia quas deleniti rem tempora fugiat sed! Ipsa consequuntur consequatur vitae iste! .{" "}
+                            <a href="#">
+                                Praesentium <span className="ttpshow">Praesentium內容說明</span>{" "}
+                            </a>
+                            , nobis veniam rem eaque tempora reiciendis animi. Tempore aliquam facilis, excepturi eos nobis pariatur enim delectus dolores harum laboriosam sapiente repellat quo optio repellendus, est fuga non architecto nihil fugit? Debitis sequi sed asperiores repudiandae distinctio! Ipsa magni illo, qui illum dolores unde id totam error nisi! A delectus necessitatibus asperiores. Laudantium alias, quo illum dolore nemo culpa, quas delectus temporibus blanditiis optio voluptatem quis quam placeat quasi, voluptate magni harum deserunt dolores expedita est? Neque itaque porro rem, quibusdam doloribus quidem hic necessitatibus. Consequatur ut asperiores quasi, earum quis quisquam?
+                        </p>
+                    </div>
+                );
+            }
+            ReactDOM.createRoot(document.querySelector("#root")).render(<App />);
+        </script>
+        <script src="./jQuery/js/jquery-1.11.3.min.js"></script>
+    </body>
+</html>

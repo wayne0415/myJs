@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>Document</title>
+        <style>
+            a {
+                text-decoration: none;
+                color: #333;
+            }
+            h1 {
+                font-weight: normal;
+            }
+            .box {
+                display: block;
+                background-color: #ccc;
+                width: 150px;
+                text-align: center;
+                padding: 15px 0;
+                transition: all 0.3s ease-in-out;
+            }
+            /* 背景顏色 */
+            .bgColor {
+                background-color: #000;
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const { useEffect } = React;
+
+            function App() {
+                useEffect(() => {
+                    $(function () {
+                        // 新增類別方法: addClass()
+                        $("#css1").hover(
+                            function () {
+                                $(this).addClass("bgColor");
+                            },
+                            function () {
+                                $(this).removeClass("bgColor");
+                            }
+                        );
+                        // 刪除類別方法: removeClass()
+                    });
+                }, []);
+                return (
+                    <div>
+                        <h1>動態新增刪除類別</h1>
+                        <a href="#" className="box" id="css1">
+                            背景顏色
+                        </a>
+                    </div>
+                );
+            }
+            ReactDOM.createRoot(document.querySelector("#root")).render(<App />);
+        </script>
+        <script src="./jQuery/js/jquery-1.11.3.min.js"></script>
+    </body>
+</html>

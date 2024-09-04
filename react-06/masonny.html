@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>Document</title>
+        <style>
+            #container {
+                margin: auto;
+            }
+            .box {
+                width: 300px;
+                height: 500px;
+
+                margin-bottom: 5px;
+            }
+            .box img {
+                width: 300px;
+                height: 500px;
+                object-fit: cover;
+
+                vertical-align: bottom;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const { useEffect } = React;
+
+            function App() {
+                useEffect(() => {
+                    $(function () {
+                        $("#container").imagesLoaded(function () {
+                            $("#container").masonry({
+                                isFitWidth: true, // 左右留白平均(水平置中)
+                            });
+                        });
+                    });
+                });
+                return (
+                    <div>
+                        <h1></h1>
+                        <div id="container">
+                            <div>
+                                <img src="./img/01.jpg" alt="" />
+                            </div>
+                            <div>
+                                <img src="./img/02.jpg" alt="" />
+                            </div>
+                            <div>
+                                <img src="./img/03.jpg" alt="" />
+                            </div>
+                            <div>
+                                <img src="./img/04.jpg" alt="" />
+                            </div>
+                            <div>
+                                <img src="./img/05.jpg" alt="" />
+                            </div>
+                            <div>
+                                <img src="./img/06.jpg" alt="" />
+                            </div>
+                            <div>
+                                <img src="./img/07.jpg" alt="" />
+                            </div>
+                            <div>
+                                <img src="./img/08.jpg" alt="" />
+                            </div>
+                            <div>
+                                <img src="./img/09.jpg" alt="" />
+                            </div>
+                            <div>
+                                <img src="./img/10.jpg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+            ReactDOM.createRoot(document.querySelector("#root")).render(<App />);
+        </script>
+        <script src="./jQuery/js/jquery-1.11.3.min.js"></script>
+        <script src="./jQuery/js/imagesloaded.pkgd.min.js"></script>
+        <script src="./jQuery/js/masonry.pkgd.min.js"></script>
+    </body>
+</html>
