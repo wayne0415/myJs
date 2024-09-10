@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            a {
+                color: black;
+                text-decoration: none;
+            }
+            #wrapper {
+                width: 800px;
+                margin: 0 auto;
+                text-align: center;
+                padding: 60px 0;
+            }
+            #filterBtn {
+                padding-bottom: 30px;
+            }
+            #filterBtn a {
+                background-color: #c7c7c7;
+                margin: 0 10px;
+                padding: 5px 30px;
+                border-radius: 99px;
+                transition: all 0.2s ease-in;
+                cursor: pointer;
+            }
+            #filterBtn a.active {
+                color: red;
+                font-weight: bold;
+                background-color: #fff;
+                box-shadow: 0 0 3px gray;
+            }
+            #filterList ul {
+                width: 800px;
+                text-align: center;
+                margin: 0 auto;
+                list-style: none;
+            }
+            #filterList ul li {
+                width: 150px;
+                float: left;
+                margin: 5px;
+            }
+            #filterList ul li img {
+                width: 150px;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const { useState } = React;
+
+            function App() {
+                const [filter, setFilter] = useState("all");
+
+                const items = [
+                    { id: 1, category: "view", src: "./images/view1.jpg" },
+                    { id: 2, category: "cats", src: "./images/cats1.jpg" },
+                    { id: 3, category: "food", src: "./images/food1.jpg" },
+                    { id: 4, category: "cats", src: "./images/cats2.jpg" },
+                    { id: 5, category: "view", src: "./images/view2.jpg" },
+                    { id: 6, category: "view", src: "./images/view3.jpg" },
+                    { id: 7, category: "cats", src: "./images/cats3.jpg" },
+                    { id: 8, category: "view", src: "./images/view4.jpg" },
+                    { id: 9, category: "food", src: "./images/food5.jpg" },
+                    { id: 10, category: "food", src: "./images/food4.jpg" },
+                    { id: 11, category: "cats", src: "./images/cats4.jpg" },
+                    { id: 12, category: "cats", src: "./images/cats5.jpg" },
+                    { id: 13, category: "cats", src: "./images/cats6.jpg" },
+                    { id: 14, category: "food", src: "./images/food3.jpg" },
+                    { id: 15, category: "food", src: "./images/food2.jpg" },
+                ];
+
+                // 過濾圖片，當前篩選類別是"all"時顯示全部，否則根據篩選顯示對應類別
+                const filteredItems = filter === "all" ? items : items.filter((item) => item.category === filter);
+
+                return (
+                    <div id="wrapper">
+                        {/* 按鈕區 */}
+                        <div id="filterBtn">
+                            <a href="#" className={filter === "all" ? "active" : ""} onClick={() => setFilter("all")}>
+                                ALL
+                            </a>
+                            <a href="#" className={filter === "cats" ? "active" : ""} onClick={() => setFilter("cats")}>
+                                CATS
+                            </a>
+                            <a href="#" className={filter === "food" ? "active" : ""} onClick={() => setFilter("food")}>
+                                FOOD
+                            </a>
+                            <a href="#" className={filter === "view" ? "active" : ""} onClick={() => setFilter("view")}>
+                                VIEW
+                            </a>
+                        </div>
+
+                        {/* 圖片篩選列表 */}
+                        <div id="filterList">
+                            <ul>
+                                {filteredItems.map((item) => (
+                                    <li key={item.id} className={item.category}>
+                                        <img src={item.src} alt="" />
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                );
+            }
+
+            ReactDOM.createRoot(document.querySelector("#root")).render(<App />);
+        </script>
+    </body>
+</html>

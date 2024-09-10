@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            a {
+                color: black;
+                text-decoration: none;
+            }
+            #wrapper {
+                width: 800px;
+                margin: 0 auto;
+                text-align: center;
+                padding: 60px 0;
+            }
+            #filterBtn {
+                padding-bottom: 30px;
+            }
+            #filterBtn a {
+                background-color: #c7c7c7;
+                margin: 0 10px;
+                padding: 5px 30px;
+                border-radius: 99px;
+                transition: all 0.2s ease-in;
+                cursor: pointer;
+            }
+            #filterBtn a.active {
+                color: red;
+                font-weight: bold;
+                background-color: #fff;
+                box-shadow: 0 0 3px gray;
+            }
+            #filterList ul {
+                width: 800px;
+                text-align: center;
+                margin: 0 auto;
+                list-style: none;
+            }
+            #filterList ul li {
+                width: 150px;
+                float: left;
+                margin: 5px;
+            }
+            #filterList ul li img {
+                width: 150px;
+            }
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- 按鈕區 -->
+            <div id="filterBtn">
+                <a href="#" class="filter allItem active">ALL</a>
+                <a href="#" class="filter cats">CATS</a>
+                <a href="#" class="filter food">FOOD</a>
+                <a href="#" class="filter view">VIEW</a>
+            </div>
+
+            <div id="filterList">
+                <ul>
+                    <li class="view">
+                        <img src="./images/view1.jpg" alt="" />
+                    </li>
+                    <li class="cats">
+                        <img src="./images/cats1.jpg" alt="" />
+                    </li>
+                    <li class="food">
+                        <img src="./images/food1.jpg" alt="" />
+                    </li>
+                    <li class="cats">
+                        <img src="./images/cats2.jpg" alt="" />
+                    </li>
+                    <li class="view">
+                        <img src="./images/view2.jpg" alt="" />
+                    </li>
+                    <li class="view">
+                        <img src="./images/view3.jpg" alt="" />
+                    </li>
+                    <li class="cats">
+                        <img src="./images/cats3.jpg" alt="" />
+                    </li>
+                    <li class="view">
+                        <img src="./images/view4.jpg" alt="" />
+                    </li>
+                    <li class="food">
+                        <img src="./images/food5.jpg" alt="" />
+                    </li>
+                    <li class="food">
+                        <img src="./images/food4.jpg" alt="" />
+                    </li>
+                    <li class="cats">
+                        <img src="./images/cats4.jpg" alt="" />
+                    </li>
+                    <li class="cats">
+                        <img src="./images/cats5.jpg" alt="" />
+                    </li>
+                    <li class="cats">
+                        <img src="./images/cats6.jpg" alt="" />
+                    </li>
+                    <li class="food">
+                        <img src="./images/food3.jpg" alt="" />
+                    </li>
+                    <li class="food">
+                        <img src="./images/food2.jpg" alt="" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            // 初始化變數
+            const filterButtons = document.querySelectorAll(".filter");
+            const filterItems = document.querySelectorAll("#filterList ul li");
+
+            // 點擊按鈕後進行篩選
+            filterButtons.forEach((button) => {
+                button.addEventListener("click", (event) => {
+                    event.preventDefault();
+
+                    // 移除所有按鈕的 active 狀態
+                    filterButtons.forEach((btn) => {
+                        btn.classList.remove("active");
+                    });
+
+                    // 為當前點擊的按鈕添加 active 狀態
+                    button.classList.add("active");
+
+                    const filterClass = button.classList[1]; // 獲取按鈕的第二個類別，如 'cats', 'food'
+
+                    // 根據篩選條件顯示或隱藏對應的圖片
+                    filterItems.forEach((item) => {
+                        if (filterClass === "allItem") {
+                            item.style.display = "block"; // 顯示全部
+                        } else if (item.classList.contains(filterClass)) {
+                            item.style.display = "block"; // 顯示符合篩選條件的
+                        } else {
+                            item.style.display = "none"; // 隱藏其他項目
+                        }
+                    });
+                });
+            });
+
+            // 頁面載入時，顯示全部圖片
+            document.querySelector(".allItem").click();
+        </script>
+    </body>
+</html>
