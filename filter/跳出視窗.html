@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            #wrapper {
+                width: 800px;
+                margin: 0 auto;
+                text-align: justify;
+                padding: 50px 0;
+            }
+
+            .btnArea a {
+                color: red;
+                text-decoration: none;
+            }
+
+            p {
+                line-height: 1.5;
+            }
+
+            /* 隱藏彈出視窗的內容 */
+            #modalContent {
+                display: none;
+            }
+
+            /* 遮罩元素 */
+        </style>
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- {/* 動態生成下方的元素 */} {/* 遮罩元素 */}
+        <div id="mdOverlay"></div>
+        {/* 彈跳視窗 */}
+        <div id="mdWindow">
+            {/* 關閉紐 */}
+            <div className="mdClose">x</div>
+            {/* 被隱藏的內容 */}
+            <div id="contentWrap">背隱藏的內容</div>
+        </div> -->
+        <div id="root"></div>
+        <script type="text/babel">
+            function App() {
+                const { useEffect } = React;
+                useEffect(() => {
+                    $(function () {
+                        // 取得彈跳視窗按鈕
+                        let modalBtn = $(".modalBtn");
+                        // 遮罩背景透明度
+                        let overlayOpacity = 0.7;
+                        // jQuery監聽事件的寫法
+                        modalBtn.on("click", function (e) {
+                            // 取消預設動作
+                            e.preventDefault();
+
+                            // 取得超連結
+                            let setMdw = $(this);
+                            // 取得超連結的href屬性值
+                            let setHref = setMdw.attr("href");
+                            // 取得href對應id的內容
+                            let setDource = $(setHref).html();
+                            // 取得視窗高度
+                            let curHeight = $(window).height();
+                            /* 
+                            // 動態生成下方的元素 
+                            // 遮罩元素 
+                            <div id="mdOverlay"></div>
+                            // 彈跳視窗 
+                            <div id="mdWindow">
+                                // 關閉紐 
+                                <div className="mdClose">x</div>
+                                // 被隱藏的內容 
+                                <div id="contentWrap">背隱藏的內容</div>
+                            </div>
+                            */
+
+                            $("body").append('<div id="mdOverlay"></div><div id="mdWindow"><div className="mdClose">x</div><div id="contentWrap">背隱藏的內容</div></div>');
+                            $("#mdOverlay, #mdWindow").css({ display: "block", opacity: "0" });
+                            $("#mdOverlay").css({ height: curHeight });
+                        });
+                    });
+                }, []);
+                return (
+                    <div id="wrapper">
+                        <div className="btnArea">
+                            <a href="#modalContent" className="modalBtn">
+                                彈跳視窗
+                            </a>
+                        </div>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. OfficiiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum
+                            dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet
+                            consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. OfficiLorem ipsum dolor sit amet consectetur adipisicing elit. Officis sit asperiores alias porro recusandae accusantium, autem excepturi tenetur architecto error in est ipsum
+                            quod quidem doloremque at quis accusamus! Eligendi.
+                        </p>
+                        {/* 彈出視窗內容 */}
+                        <div id="modalContent">
+                            <h2>彈出視窗標題</h2>
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad, ipsum. Saepe officia fuga nostrum in magnam aperiam sequi alias minima est voluptatibus accusamus, vitae suscipit, neque ad eos blanditiis perspiciatis!</p>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis, inventore minus deleniti, quibusdam fuga debitis tempora vitae dolor sequi dignissimos temporibus facilis! Cupiditate aspernatur quisquam necessitatibus dolore? Nulla, nemo neque.</p>
+                        </div>
+                    </div>
+                );
+            }
+            ReactDOM.createRoot(document.querySelector("#root")).render(<App />);
+        </script>
+        <script src="../jQuery/js/jquery-1.11.3.min.js"></script>
+    </body>
+</html>
