@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const { useState } = React;
+
+            function App() {
+                const [userid, setUserid] = useState("");
+                const [username, setUsername] = useState("");
+                // 送出鈕的函式
+                const handleSubmit = (e) => {
+                    e.preventDefault();
+                    // console.dir(e);
+                    console.log(userid);
+                    console.log(username);
+                };
+
+                // 帳號文字方塊異動時的函式
+                const handleChange = (e) => {
+                    setUserid(e.target.value);
+                };
+                // 名稱文字方塊異動時的函式
+                const handleChange2 = (e) => {
+                    setUsername(e.target.value);
+                };
+
+                return (
+                    <div>
+                        <form onSubmit={handleSubmit}>
+                            <label htmlFor="uid">帳號{userid}</label>
+                            <input type="text" id="uid" onChange={handleChange} name="uid" />
+                            <label htmlFor="uname">名稱{username}</label>
+                            <input type="text" id="uname" onChange={handleChange2} name="uname" />
+                            <button type="submit">送出</button>
+                        </form>
+                    </div>
+                );
+            }
+            ReactDOM.createRoot(document.querySelector("#root")).render(<App />);
+        </script>
+    </body>
+</html>
