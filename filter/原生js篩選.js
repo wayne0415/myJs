@@ -4,8 +4,8 @@ const filterItems = document.querySelectorAll("#filterList ul li");
 
 // 點擊按鈕後進行篩選
 filterButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-        event.preventDefault();
+    button.addEventListener("click", (e) => {
+        e.preventDefault();
 
         // 移除所有按鈕的 active 狀態
         filterButtons.forEach((btn) => {
