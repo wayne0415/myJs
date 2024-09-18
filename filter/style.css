@@ -1,0 +1,68 @@
+/* 重置樣式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.tea-categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.tea-category {
+    padding: 15px 30px;
+    border-radius: 25px;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.tea-category.red {
+    background-color: #a94236;
+}
+
+.tea-category.oolong {
+    background-color: #5a4e3d;
+}
+
+.tea-category.green {
+    background-color: #4e8f55;
+}
+
+.tea-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tea-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tea-item h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+.tea-item p {
+    font-size: 18px;
+    color: #555;
+}
+
+.tea-category.active {
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
